@@ -7,26 +7,25 @@ import androidx.room.RoomDatabase
 import com.example.movies_ch6_binar.dao.UserDao
 
 @Database(entities = [User::class], version = 1, exportSchema = false)
-abstract class UserDatabase : RoomDatabase() {
-    abstract fun myUserDao() : UserDao
-    companion object{
-        @Volatile
+abstract class UserDatabase: RoomDatabase() {
+    abstract fun userDao(): UserDao
 
-        var INSTANCE : UserDatabase? = null
+    companion object {
+        private var userDatabase: UserDatabase? = null
 
-        fun getDatabaseInstance(context: Context): UserDatabase{
-            val temInstance = INSTANCE
-            if (temInstance != null ){
-                return temInstance
-            }
-            synchronized(this){
-                val roomDatabaseInstance = Room.databaseBuilder(context, UserDatabase::class.java, "User").allowMainThreadQueries().build()
-                INSTANCE=roomDatabaseInstance
-                return return roomDatabaseInstance
+        fun getData(context: Context): UserDatabase {
+            return userDatabase?: synchronized(this){
+                val data = Room.databaseBuilder(
+                    context.applicationContext,
+                    UserDatabase::class.java,
+                    "Data.db"
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
+                userDatabase = data
+                data
             }
         }
     }
-
-
 }
 
