@@ -18,7 +18,10 @@ android {
         versionCode 1
         versionName "1.0"
 
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.example.android.dagger.CustomTestRunner"
+        buildConfigField("String", "API_KEY", '"acb0afb6699c9aa6945f1d6a3f1ec89c"')
     }
 
     buildTypes {
@@ -26,7 +29,28 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        customDebug {
+            initWith debug
+            applicationIdSuffix ".customDebug"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
+
+    flavorDimensions "version"
+    productFlavors {
+        free {
+            dimension "version"
+            manifestPlaceholders variant: "Free"
+            applicationIdSuffix ".free"
+        }
+        paid {
+            dimension "version"
+            manifestPlaceholders variant: "Paid"
+            applicationIdSuffix ".paid"
+        }
+    }
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -75,6 +99,7 @@ dependencies {
     // Retrofit + GSON
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6"
 
     // Paging 3
     implementation "androidx.paging:paging-runtime:3.1.1"
@@ -92,4 +117,24 @@ dependencies {
     // Lifecycle components
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.5.1"
+
+    //DataStore
+    implementation 'androidx.datastore:datastore-preferences:1.0.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
+    //user permission
+    implementation "com.karumi:dexter:6.2.3"
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation("io.coil-kt:coil:1.0.0-rc3")
+
+    //testing
+    testImplementation 'org.mockito:mockito-core:3.6.0'
+    testImplementation 'org.mockito:mockito-inline:3.6.0'
+
+    //chucker
+    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
 }

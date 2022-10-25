@@ -44,4 +44,10 @@
     <string name="edit_profile">Ubah Profile</string>
     <string name="save">Simpan</string>
     <string name="delete_account">Hapus Akun</string>
+    <string name="confirmpw">Konfirmasi Kata Sandi</string>
+    <string name="Tittle">Judul</string>
+    <string name="Duration">Durasi</string>
+    <string name="Languange">Bahasa</string>
+    <string name="Desc">Deskripsi</string>
+    <string name="fav">Kesukaan</string>
 </resources>

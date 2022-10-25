@@ -7,6 +7,11 @@
     <string name="highest_rated_movies">Highest rated movies of all time</string>
     <string name="upcoming">Upcoming</string>
     <string name="stay_updated">Stay updated with the latest movies</string>
+    <string name="Tittle">Title</string>
+    <string name="Duration">Duration</string>
+    <string name="Languange">Languange</string>
+    <string name="Desc">Description</string>
+    <string name="fav">Favorite</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="editprofile">Edit Profile</string>
@@ -44,5 +49,6 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="save">Save</string>
     <string name="delete_account">Delete Account</string>
+    <string name="confirmpw">Confirm Password</string>
 
 </resources>

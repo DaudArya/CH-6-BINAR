@@ -1,12 +1,14 @@
-package com.example.movies_ch6_binar.ui
+package com.example.movies_ch6_binar
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.movies_ch6_binar.R
+import dagger.hilt.android.AndroidEntryPoint
 
-class AuthActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth)
+        setContentView(R.layout.activity_main)
     }
 }
