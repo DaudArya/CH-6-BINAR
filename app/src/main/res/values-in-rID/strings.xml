@@ -50,4 +50,7 @@
     <string name="Languange">Bahasa</string>
     <string name="Desc">Deskripsi</string>
     <string name="fav">Kesukaan</string>
+    <string name="get_rating">%s/10 IMDb</string>
+    <string name="get_duration">%s Menit</string>
+    <string name="get_username">Selamat datang, %s</string>
 </resources>
