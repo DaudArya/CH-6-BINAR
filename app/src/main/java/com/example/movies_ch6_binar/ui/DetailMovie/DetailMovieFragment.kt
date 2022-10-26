@@ -48,9 +48,9 @@ class DetailMovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.d(TAG, "Movie id args -> ${args.mov.id}")
-        val movieId = args.mov.id
-        val userId = args.userId
+        Log.d(TAG, "Movie id args -> ${args.Mov.id}")
+        val movieId = args.Mov.id
+        val userId = args.UserId
         observeFavoriteMovie(userId, movieId)
         getMovieByID(movieId)
         moveToMovieList()
@@ -108,14 +108,14 @@ class DetailMovieFragment : Fragment() {
 
     private fun addToFavoriteMovie() {
         viewModel.favoriteMovie.observe(viewLifecycleOwner) { result ->
-            val isFavorite = result?.movieId == args.mov.id
+            val isFavorite = result?.movieId == args.Mov.id
             binding.toggleFavorite.setOnClickListener {
                 if (result == null) {
-                    args.mov.userId = args.userId
-                    viewModel.addFavoriteMovie(args.mov)
+                    args.Mov.userId = args.UserId
+                    viewModel.addFavoriteMovie(args.Mov)
                     requireContext().showLongToast("Success Add To Fvaorite")
                 } else {
-                    viewModel.deleteFavoriteMovie(args.userId, result.id)
+                    viewModel.deleteFavoriteMovie(args.UserId, result.id)
                     requireContext().showLongToast("Success Delete From Fvaorite")
                 }
             }

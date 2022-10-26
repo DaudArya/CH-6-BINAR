@@ -31,7 +31,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun startSplashScreen() {
         binding.logo.alpha = 0f
-        binding.logo.animate().setDuration(3000).alpha(1f).withEndAction {
+        binding.logo.animate().setDuration(2000).alpha(1f).withEndAction {
             checkCredential()
         }
     }

@@ -55,8 +55,8 @@ class FavoriteMovieFragment : Fragment() {
     }
 
     private fun observeQueryResult() {
-        viewModel.getMovie(args.userId)
-        Log.d(TAG, "Favorite UserId -> ${args.userId}")
+        viewModel.getMovie(args.UserId)
+        Log.d(TAG, "Favorite UserId -> ${args.UserId}")
         viewModel.state.observe(viewLifecycleOwner) { result ->
             showLoading(result.isLoading)
             showMovieList(result.movies ?: emptyList())
@@ -82,12 +82,12 @@ class FavoriteMovieFragment : Fragment() {
     private fun onClicked(movie: Movie) {
         val direction =
             FavoriteMovieFragmentDirections.actionFavoriteMovieFragmentToDetailMovieFragment(
-                args.userId,
+                args.UserId,
                 movie
             )
         findNavController().navigate(direction)
 
-        Log.d(Constant.TAG, "userId -> ${args.userId}")
+        Log.d(Constant.TAG, "userId -> ${args.UserId}")
 
     }
 
