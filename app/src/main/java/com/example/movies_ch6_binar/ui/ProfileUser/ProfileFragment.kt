@@ -19,6 +19,8 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
+import com.example.movies_ch6_binar.BackGround.BlurActivity
+import com.example.movies_ch6_binar.MainActivity
 import com.example.movies_ch6_binar.Models.model.User
 import com.example.movies_ch6_binar.R
 import com.example.movies_ch6_binar.databinding.FragmentProfileBinding
@@ -86,6 +88,12 @@ class ProfileFragment : Fragment() {
         updateUser()
         moveToMovieList()
         chooseImage()
+
+        binding.btnBlur.setOnClickListener(){
+            activity?.let {
+                val intent = Intent(it, BlurActivity::class.java)
+                it.startActivity(intent)}
+        }
     }
 
     override fun onDestroy() {
@@ -145,6 +153,9 @@ class ProfileFragment : Fragment() {
                         viewModel.updateResult.observe(viewLifecycleOwner) { result ->
                             if (result.result == 1) {
                                 requireContext().showLongToast("Berhasil diupdate")
+                                activity?.let {
+                                    val intent = Intent(it, MainActivity::class.java)
+                                    it.startActivity(intent)}
                             } else if (result.error.isNotEmpty()) {
                                 requireContext().showLongToast("Gagal diupdate, ${result.error}")
                             }

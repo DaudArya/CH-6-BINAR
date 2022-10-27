@@ -53,4 +53,22 @@
     <string name="get_rating">%s/10 IMDb</string>
     <string name="get_duration">%s Menit</string>
     <string name="get_username">Selamat datang, %s</string>
+
+    <!-- Buttons -->
+    <string name="select_image">Pilih Gambar</string>
+    <string name="go">Go</string>
+    <string name="see_file">Lihat Gambar</string>
+
+    <!-- Content descriptions -->
+    <string name="description_image">Gambar Blur Tersimpan</string>
+
+    <!-- Blur levels -->
+    <string name="blur_lv_1">Blur Sedikit</string>
+    <string name="blur_lv_2">Lebig Banyak Blur</string>
+    <string name="blur_lv_3">Paling Blur</string>
+    <string name="cancel_work">Batalkan</string>
+
+    <!-- Messages -->
+    <string name="set_permissions_in_settings">Go to Settings -> Apps and Notifications ->
+        WorkManager Demo -> App Permissions and grant access to Storage.</string>
 </resources>

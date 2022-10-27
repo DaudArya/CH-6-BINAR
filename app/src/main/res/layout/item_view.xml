@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_container"
+    android:id="@+id/item_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
@@ -34,13 +34,13 @@
                 tools:src="@tools:sample/avatars" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:id="@+id/title_text_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/title"
-                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,6 +50,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/rating_text_view"
                 android:layout_width="0dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
@@ -62,6 +63,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/title_text_view" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:id="@+id/popularity_text_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -69,7 +71,6 @@
                 android:layout_marginTop="8dp"
                 android:drawablePadding="4dp"
                 android:text="@string/rating"
-                android:textColor="@color/black"
                 android:textSize="16sp"
                 app:drawableStartCompat="@drawable/ic_baseline_person_24"
                 app:layout_constraintEnd_toEndOf="parent"
