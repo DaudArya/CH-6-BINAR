@@ -4,7 +4,10 @@ import com.example.movies_ch6_binar.Models.model.User
 import com.example.movies_ch6_binar.data.local.entity.UserEntity
 import com.example.movies_ch6_binar.data.local.room.dao.FavoriteDao
 import com.example.movies_ch6_binar.data.local.room.dao.UserDao
+import com.example.movies_ch6_binar.data.remote.dto.DetailDto
+import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
@@ -43,6 +46,24 @@ import retrofit2.Response
         val response = repository.getUserData("20082010137@student.upnjatim.ac.id")
         assertEquals(response, correct)
     }
+
+
+     @Test
+     fun getUsers(): Unit = runBlocking {
+         val respAllMovie = mockk<Long>()
+
+         every {
+             runBlocking {
+                 userDao.register(user = UserEntity(1,"adam","Adam","20082010137@student.upnjatim.ac.id","adm123","Surabaya","26-01-2002",null))
+             }
+         } returns respAllMovie
+
+         repository.register(user = UserEntity(1,"","","","","","",null))
+
+         verify {
+             runBlocking { userDao.register(user = UserEntity(1,"adam","Adam","20082010137@student.upnjatim.ac.id","adm123","Surabaya","26-01-2002",null)) }
+         }
+     }
 
 
 

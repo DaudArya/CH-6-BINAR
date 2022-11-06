@@ -36,11 +36,4 @@ class FavoriteRepositoryImplTest {
         repository = FavoriteRepositoryImpl(favoriteMovieDao)
     }
 
-
-
-
-
-
-
-
 }
