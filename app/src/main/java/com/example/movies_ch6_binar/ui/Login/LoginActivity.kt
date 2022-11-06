@@ -12,6 +12,11 @@ import com.example.movies_ch6_binar.databinding.ActivityLoginBinding
 import com.example.movies_ch6_binar.ui.Register.RegisterActivity
 import com.example.movies_ch6_binar.utils.Extension.isEmailValid
 import com.example.movies_ch6_binar.utils.Extension.showLongToast
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 data class LoginState(
@@ -21,6 +26,8 @@ data class LoginState(
     val result: Boolean = false
 )
 
+private lateinit var firebaseAnalytics: FirebaseAnalytics
+private lateinit var firebaseCrashlytics: FirebaseCrashlytics
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -28,6 +35,8 @@ class LoginActivity : AppCompatActivity() {
     private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        firebaseAnalytics = Firebase.analytics
+        firebaseCrashlytics = Firebase.crashlytics
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)

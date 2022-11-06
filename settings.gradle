@@ -12,5 +12,13 @@
 //        mavenCentral()
 //    }
 //}
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
 rootProject.name = "Movies-CH6-Binar"
 include ':app'

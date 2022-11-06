@@ -22,19 +22,24 @@ import com.example.movies_ch6_binar.utils.Extension.isPasswordValid
 import com.example.movies_ch6_binar.utils.Extension.isUsernameValid
 import com.example.movies_ch6_binar.utils.Extension.loadImage
 import com.example.movies_ch6_binar.utils.Extension.showLongToast
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import dagger.hilt.android.AndroidEntryPoint
-
 data class RegisterState(
     val isLoading: Boolean = false,
     val user: Long? = null,
     val error: String = ""
 )
-
+private lateinit var firebaseAnalytics: FirebaseAnalytics
+private lateinit var firebaseCrashlytics: FirebaseCrashlytics
 @AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -63,6 +68,8 @@ class RegisterActivity : AppCompatActivity() {
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        firebaseAnalytics = Firebase.analytics
+        firebaseCrashlytics = Firebase.crashlytics
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
