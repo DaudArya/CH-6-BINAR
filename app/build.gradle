@@ -31,24 +31,26 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        customDebug {
-            initWith debug
-            applicationIdSuffix ".customDebug"
+        debug {
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
     flavorDimensions "version"
     productFlavors {
-        free {
+        Free {
             dimension "version"
             manifestPlaceholders variant: "Free"
             applicationIdSuffix ".free"
+            versionNameSuffix "-free"
         }
-        paid {
+        Paid {
             dimension "version"
             manifestPlaceholders variant: "Paid"
             applicationIdSuffix ".paid"
+            versionNameSuffix "-paid"
+
         }
     }
 
