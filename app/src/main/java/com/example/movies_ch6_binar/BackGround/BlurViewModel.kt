@@ -28,6 +28,7 @@ import com.example.movies_ch6_binar.BackGround.workers.BlurWorker
 import com.example.movies_ch6_binar.BackGround.workers.CleanupWorker
 import com.example.movies_ch6_binar.BackGround.workers.SaveImageToFileWorker
 import com.example.movies_ch6_binar.R
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 class BlurViewModel(application: Application) : ViewModel() {
 

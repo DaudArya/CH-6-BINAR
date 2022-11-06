@@ -5,10 +5,10 @@
     android:id="@+id/item_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:background="@color/white">
+    android:layout_marginBottom="8dp">
 
     <androidx.cardview.widget.CardView
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="5dp"

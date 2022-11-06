@@ -44,6 +44,8 @@ class BlurActivity : AppCompatActivity() {
 
     }
 
+
+
     private fun workInfosObserver(): Observer<List<WorkInfo>> {
         return Observer { listOfWorkInfo ->
 

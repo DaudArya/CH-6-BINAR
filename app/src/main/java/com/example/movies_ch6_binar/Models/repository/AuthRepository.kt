@@ -12,4 +12,5 @@ interface AuthRepository {
     suspend fun getUserData(email: String): UserEntity
 
     suspend fun updateUser(user: UserEntity): Int
+
 }

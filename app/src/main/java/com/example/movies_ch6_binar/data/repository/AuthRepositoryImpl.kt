@@ -8,6 +8,7 @@ import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val userDao: UserDao
+
 ) : AuthRepository {
     override suspend fun login(email: String, password: String): UserEntity {
         return userDao.login(email, password)

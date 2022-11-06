@@ -34,6 +34,7 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 data class ProfileState(
     val isLoading: Boolean = false,
@@ -75,6 +76,7 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(layoutInflater)
@@ -88,6 +90,11 @@ class ProfileFragment : Fragment() {
         updateUser()
         moveToMovieList()
         chooseImage()
+
+        binding.btnCrash.setOnClickListener() {
+            throw RuntimeException("Test Crash") // Force a crash
+        }
+
 
         binding.btnBlur.setOnClickListener(){
             activity?.let {
@@ -172,6 +179,13 @@ class ProfileFragment : Fragment() {
             findNavController().popBackStack()
         }
     }
+
+    private fun crash() {
+        binding.btnCrash.setOnClickListener() {
+            throw RuntimeException("Test Crash") // Force a crash
+        }
+    }
+
 
     private fun logout() {
         binding.logoutButton.setOnClickListener {
