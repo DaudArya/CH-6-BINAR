@@ -2,7 +2,7 @@
 - Unit Testing
 - Firebase Feature (Analytics and CrashLytics)
 - Build Flavoring (Free Version and Paid Version)
-- User Profiler Documentation
+- Android Profiler Documentation
 
 ---------------------------------------------------------------------------------------------------------------------------
 ANDROID PROFILER
